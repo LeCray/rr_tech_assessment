@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import HomePage from '../pages/HomePage';
@@ -31,12 +31,12 @@ function RootNavigator() {
 //       {...rest}
 //       render={(props) =>
 //         token ? <Redirect to="/" /> : <Component {...props} />
-//       }
+//       }q
 //     />
 //   );
 
   return (
-    <Router>
+    <Router>        
         <ResponsiveAppBar/>
       <Routes>
         <Route path="/" element={<LoginPage />} />
