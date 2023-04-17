@@ -105,8 +105,16 @@ return (
             autoFocus
             InputLabelProps={{
                 style: { color: theme.palette.text.primary },
-              }}
+            }}
+            sx={{
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                    "& > fieldset": {
+                        borderColor: theme.palette.text.primary
+                    }
+                }
+            }}
             />
+            
         <TextField
             margin="normal"
             required
@@ -119,6 +127,13 @@ return (
             InputLabelProps={{
                 style: { color: theme.palette.text.primary },
               }}
+            sx={{
+                "& .MuiOutlinedInput-root.Mui-focused": {
+                    "& > fieldset": {
+                        borderColor: theme.palette.text.primary
+                    }
+                }
+            }}
             />
         <Grid display="flex" justifyContent="flex-start">
             <FormControlLabel
@@ -139,17 +154,17 @@ return (
             Sign In
         </Button>
         <Grid container>
-        <Grid item xs display="flex" justifyContent="flex-start">
-            <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
-                Forgot password?
-            </Link>
-        </Grid>
-        <Grid item display="flex" flexDirection="row">
-            <div style={{fontSize: 14, marginRight: 5}}>Don't have an account?</div>
-            <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
-                Sign Up
-            </Link>
-        </Grid>
+            <Grid item xs display="flex" justifyContent="flex-start">
+                <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
+                    Forgot password?
+                </Link>
+            </Grid>
+            <Grid item display="flex" flexDirection="row">
+                <div style={{fontSize: 14, marginRight: 5}}>Don't have an account?</div>
+                <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
+                    Sign Up
+                </Link>
+            </Grid>
         </Grid>
     </Box>
     </Box>
@@ -157,7 +172,7 @@ return (
         <DialogContent>
             <DialogContentText sx={{fontFamily: "Montserrat"}}>
                 {error}
-                {error === "Invalid password. Make sure your password contains:" ? 
+                {error === "Invalid password. Make sure your password contains:" && 
                     <Box>                        
                         <ul>
                             <li>A minimum of 8 characters</li>
@@ -166,7 +181,7 @@ return (
                             <li>At least 1 special character</li>
                         </ul>
                     </Box>
-                :null}                            
+                }                          
             </DialogContentText>
         </DialogContent>
         <DialogActions>                
