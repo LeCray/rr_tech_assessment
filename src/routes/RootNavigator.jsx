@@ -8,6 +8,7 @@ import UnauthorizedPage from '../pages/UnauthorizedPage';
 import AppBar from '../components/AppBar'
 import ResponsiveAppBar from '../components/AppBar';
 import PrivateRoute from './PrivateRoute';
+import RandomRoute from './RandomRoute';
 
 
 
@@ -29,10 +30,11 @@ function RootNavigator() {
                 <AccountPage />
             </PrivateRoute>
         }/>        
+        <Route path="/unauthorized" element={<UnauthorizedPage />}/>        
         <Route path="*" element={
-            <PrivateRoute>
+            <RandomRoute>
                 <HomePage />
-            </PrivateRoute>
+            </RandomRoute>
         }/>
       </Routes>
     </Router>

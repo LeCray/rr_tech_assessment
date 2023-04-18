@@ -109,93 +109,93 @@ function Login() {
                     flexDirection: "column",
                     alignItems: "center",
                 }}
-                >
-            <Typography component="h1" variant="h5" >
-                Sign in
-            </Typography>
-            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-                <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Email Address"
-                    name="email"
-                    autoComplete="email"
-                    autoFocus
-                    InputLabelProps={{
-                        style: { color: theme.palette.text.primary },
-                    }}
-                    sx={{
-                        "& .MuiOutlinedInput-root.Mui-focused": {
-                            "& > fieldset": {
-                                borderColor: theme.palette.text.primary
+            >
+                <Typography component="h1" variant="h5" >
+                    Sign in
+                </Typography>
+                <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                        InputLabelProps={{
+                            style: { color: theme.palette.text.primary },
+                        }}
+                        sx={{
+                            "& .MuiOutlinedInput-root.Mui-focused": {
+                                "& > fieldset": {
+                                    borderColor: theme.palette.text.primary
+                                }
                             }
-                        }
-                    }}
-                    />
-                    
-                <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password"
-                    label="Password"
-                    type="password"
-                    id="password"
-                    autoComplete="current-password"
-                    InputLabelProps={{
-                        style: { color: theme.palette.text.primary },
-                    }}
-                    sx={{
-                        "& .MuiOutlinedInput-root.Mui-focused": {
-                            "& > fieldset": {
-                                borderColor: theme.palette.text.primary
-                            }
-                        }
-                    }}
-                    />
-                <Grid display="flex" justifyContent="flex-start">
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="primary" sx={{
-                            [`&, &.${checkboxClasses.checked}`]: {
-                            color: theme.palette.text.primary,
-                            },
-                        }}/>}
-                        label="Remember me"
+                        }}
                         />
-                </Grid>
-                {signingIn?
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mt:3, mb:2 }}>
-                        <CircularProgress size={25} color="primary" sx={{color: theme.palette.text.primary}}/>    
-                    </Box>
-                :
-                    <div>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 3, mb: 2 }}
-                            >
-                            Sign In
-                        </Button>
-                    
-                        <Grid container>
-                            <Grid item xs display="flex" justifyContent="flex-start">
-                                <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
-                                    Forgot password?
-                                </Link>
+                        
+                    <TextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        InputLabelProps={{
+                            style: { color: theme.palette.text.primary },
+                        }}
+                        sx={{
+                            "& .MuiOutlinedInput-root.Mui-focused": {
+                                "& > fieldset": {
+                                    borderColor: theme.palette.text.primary
+                                }
+                            }
+                        }}
+                        />
+                    <Grid display="flex" justifyContent="flex-start">
+                        <FormControlLabel
+                            control={<Checkbox value="remember" color="primary" sx={{
+                                [`&, &.${checkboxClasses.checked}`]: {
+                                color: theme.palette.text.primary,
+                                },
+                            }}/>}
+                            label="Remember me"
+                            />
+                    </Grid>
+                    {signingIn?
+                        <Box sx={{ display: 'flex', justifyContent: 'center', mt:3, mb:2 }}>
+                            <CircularProgress size={25} color="primary" sx={{color: theme.palette.text.primary}}/>    
+                        </Box>
+                    :
+                        <div>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2 }}
+                                >
+                                Sign In
+                            </Button>
+                        
+                            <Grid container>
+                                <Grid item xs display="flex" justifyContent="flex-start">
+                                    <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
+                                        Forgot password?
+                                    </Link>
+                                </Grid>
+                                <Grid item display="flex" flexDirection="row">
+                                    <div style={{fontSize: 14, marginRight: 5}}>Don't have an account?</div>
+                                    <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
+                                        Sign Up
+                                    </Link>
+                                </Grid>
                             </Grid>
-                            <Grid item display="flex" flexDirection="row">
-                                <div style={{fontSize: 14, marginRight: 5}}>Don't have an account?</div>
-                                <Link href="#" variant="body2" sx={{color: theme.palette.text.primary}}>
-                                    Sign Up
-                                </Link>
-                            </Grid>
-                        </Grid>
-                    </div>
-                }
-            </Box>
+                        </div>
+                    }
+                </Box>
             </Box>
             <Dialog open={openDialogue} onClose={handleClose} fullWidth maxWidth="xs">            
                 <DialogContent>

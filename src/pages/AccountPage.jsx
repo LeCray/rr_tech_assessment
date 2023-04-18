@@ -5,27 +5,25 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
+import { useSelector } from 'react-redux';
+
+import TextField from "@mui/material/TextField";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import { useTheme } from '@mui/material/styles';
+
+
+
 
 function AccountPage() {
-    const gradient = keyframes`{        
-        0% {
-            background-position: 0 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0 50%;
-        }
-    }`;
+
+    const theme = useTheme();
+
+    let email;
+    email = useSelector((state) => state.auth.email) || localStorage.getItem('email')
+
+    let password;
+    password = useSelector((state) => state.auth.password) || localStorage.getItem('password')
     
-    const AnimatedGradientText = styled.h1`
-        animation: ${gradient} 5s ease-in-out infinite;
-        background: linear-gradient(to right, #ee9ca7, #ffdde1, #2193b0, #6dd5ed);
-        background-size: 300%;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-    `;
     return (
         <Container component="main" maxWidth="xs" >
             <Box
@@ -34,22 +32,55 @@ function AccountPage() {
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                }}
-                >
-                
-                <Typography component="h1" variant="h5" sx={{
-                    background: '#121FCF',
-                    background: 'repeating-linear-gradient(to right, #121FCF 0%, #CF1512 100%)',
-                    '-webkit-background-clip': 'text',
-                    '-webkit-text-fill-color': 'transparent',
-                    fontWeight: 800,
-                    fontSize: 50,
-                    marginTop: 10
-                }}>
-                    ACCOUNT
-                    
+                }}>                               
+                <Typography component="h1" variant="h5" >
+                    Your Account
                 </Typography>
-                {/* <AnimatedGradientText>Hi, I'm Alexander</AnimatedGradientText> */}
+                <Box component="form" noValidate sx={{ mt: 1 }}>                
+                    <TextField
+                        margin="normal"                        
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"                                            
+                        InputLabelProps={{
+                            style: { color: theme.palette.text.primary },
+                        }}
+                        value={email}
+                        sx={{
+                            "& .MuiOutlinedInput-root.Mui-focused": {
+                                "& > fieldset": {
+                                    borderColor: theme.palette.text.primary
+                                }
+                            }
+                        }}
+                        InputProps={{
+                            readOnly: true,
+                          }}
+                        />
+                        
+                    <TextField
+                        margin="normal"                        
+                        fullWidth
+                        name="password"
+                        label="Password"                        
+                        id="password"                        
+                        InputLabelProps={{
+                            style: { color: theme.palette.text.primary },
+                        }}
+                        value={password}
+                        sx={{
+                            "& .MuiOutlinedInput-root.Mui-focused": {
+                                "& > fieldset": {
+                                    borderColor: theme.palette.text.primary
+                                }
+                            }
+                        }}
+                        InputProps={{
+                            readOnly: true,
+                          }}
+                        />
+                </Box>
             </Box>
         </Container>
     )
