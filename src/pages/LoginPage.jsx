@@ -54,8 +54,8 @@ function Login() {
 
 
     const handleClose = () => {
-    setOpenDialogue(false);
-    setError("")
+        setOpenDialogue(false);
+        setError("")
     };
 
     const handleSubmit = (event) => {
@@ -81,10 +81,17 @@ function Login() {
         if (email === "darryn@randrtechsa.com" && password === "P@55w0rd@1") {
             const token = "Example Token"; //Some API logic to provide user with a unique token
             // Dispatch a login action to update the global state with the token
-            dispatch(login({token: token, email: email, password: password}))
+           
             setSigningIn(true)
-            setTimeout(() => {                
+            setTimeout(() => {    
+                dispatch(login({token: token, email: email, password: password}))
+                    
+                localStorage.setItem("token", token)
+                localStorage.setItem('email', email);
+                localStorage.setItem('password', password);            
                 navigate("/home");
+                    
+
             }, 2000);
             
         } else {

@@ -101,6 +101,9 @@ function App() {
                             primary: grey[900],
                             secondary: grey[800],
                         },
+                        action: {                            
+                            disabled: '#555'
+                        }
                     }
                 : 
                     {
@@ -116,6 +119,7 @@ function App() {
                             primary: '#fff',
                             secondary: '#fff',
                         },
+                        
                     }
                 ),
             },
