@@ -33,8 +33,16 @@ function AccountPage() {
                     flexDirection: "column",
                     alignItems: "center",
                 }}>                               
-                <Typography component="h1" variant="h5" >
-                    Your Account
+                <Typography component="h1" variant="h5" sx={{
+                    background: '#121FCF',
+                    background: 'repeating-linear-gradient(to right, #121FCF 0%, #CF1512 100%)',
+                    '-webkit-background-clip': 'text',
+                    '-webkit-text-fill-color': 'transparent',
+                    fontWeight: 800,
+                    fontSize: 50,
+                    marginTop: 10
+                }}>
+                    YOUR<br/>ACCOUNT                    
                 </Typography>
                 <Box component="form" noValidate sx={{ mt: 1 }}>                
                     <TextField
@@ -47,16 +55,15 @@ function AccountPage() {
                             style: { color: theme.palette.text.primary },
                         }}
                         value={email}
+                        disabled={true}
                         sx={{
-                            "& .MuiOutlinedInput-root.Mui-focused": {
-                                "& > fieldset": {
-                                    borderColor: theme.palette.text.primary
-                                }
-                            }
+                            "& .MuiInputBase-input.Mui-disabled": {
+                              WebkitTextFillColor: theme.palette.text.primary,
+                            },
                         }}
                         InputProps={{
                             readOnly: true,
-                          }}
+                        }}
                         />
                         
                     <TextField
@@ -64,17 +71,16 @@ function AccountPage() {
                         fullWidth
                         name="password"
                         label="Password"                        
-                        id="password"                        
+                        id="password"     
+                        disabled={true}                   
                         InputLabelProps={{
                             style: { color: theme.palette.text.primary },
                         }}
                         value={password}
                         sx={{
-                            "& .MuiOutlinedInput-root.Mui-focused": {
-                                "& > fieldset": {
-                                    borderColor: theme.palette.text.primary
-                                }
-                            }
+                            "& .MuiInputBase-input.Mui-disabled": {
+                              WebkitTextFillColor: theme.palette.text.primary,
+                            },
                         }}
                         InputProps={{
                             readOnly: true,

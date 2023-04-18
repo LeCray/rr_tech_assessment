@@ -104,10 +104,6 @@ function ResponsiveAppBar() {
 
     const container = window !== undefined ? () => window().document.body : undefined;
 
-    //const { darkMode, handleDarkMode } = useThemeMode();
-
-    //const user = useContext(UserContext);
-
     return (
         <AppBar position="static">
             <Container maxWidth="xl" sx={{backgroundColor: theme.palette.background}}>
@@ -143,31 +139,6 @@ function ResponsiveAppBar() {
                             >
                             <MenuIcon />
                         </IconButton>
-                        {/* <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'left',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{
-                                display: { xs: 'block', md: 'none' },
-                            }}
-                            >
-                            
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu> */}
                     </Box>          
                     <Typography
                         variant="h5"
@@ -202,10 +173,10 @@ function ResponsiveAppBar() {
                     <Box sx={{ flexGrow: 0 }}>
                     
                         <IconButton onClick={colorMode.toggleColorMode} sx={{ p: 0 }}>
-                        {theme.palette.mode === 'dark' ? 
-                                <ModeNightIcon />
+                        {theme.palette.mode === 'dark' ?                                 
+                                <LightModeIcon />
                             : 
-                                <LightModeIcon sx={{ color: "#fff"}}/>
+                                <ModeNightIcon sx={{ color: "#fff"}}/>
                             }                                          
                         </IconButton>
                     
@@ -214,7 +185,10 @@ function ResponsiveAppBar() {
                         <Box sx={{ flexGrow: 0, marginLeft: 2 }}>
                             <Tooltip title="Account options">
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                    <Avatar alt={email} sx={{ width: 30, height: 30 }} />
+                                    <Avatar 
+                                        alt={email.toUpperCase() } 
+                                        sx={{ width: 30, height: 30, bgcolor: '#521c90' }}
+                                        src="/broken-image.jpg"/>
                                 </IconButton>
                             </Tooltip>
                             <Menu

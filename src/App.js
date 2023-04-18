@@ -96,6 +96,9 @@ function App() {
                         primary: {
                             main: '#111',
                         },
+                        secondary: {
+                            main: '#521c90',
+                        },
                         divider: green[200],
                         text: {
                             primary: grey[900],
@@ -110,7 +113,10 @@ function App() {
                         // palette values for dark mode
                         primary: {
                             main: '#222'
-                        },                
+                        },   
+                        secondary: {
+                            main: '#521c90',
+                        },             
                         background: {
                             default: "#111",
                             paper: '#000',

@@ -110,8 +110,15 @@ function Login() {
                     alignItems: "center",
                 }}
             >
-                <Typography component="h1" variant="h5" >
-                    Sign in
+                <Typography component="h1" variant="h5" sx={{
+                    background: '#121FCF',
+                    background: 'repeating-linear-gradient(to right, #121FCF 0%, #CF1512 100%)',
+                    '-webkit-background-clip': 'text',
+                    '-webkit-text-fill-color': 'transparent',
+                    fontWeight: 800,
+                    fontSize: 50,                    
+                }}>
+                    SIGN IN                                
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
@@ -129,7 +136,12 @@ function Login() {
                         sx={{
                             "& .MuiOutlinedInput-root.Mui-focused": {
                                 "& > fieldset": {
-                                    borderColor: theme.palette.text.primary
+                                    borderColor: theme.palette.secondary.main
+                                }
+                            },
+                            "& .MuiOutlinedInput-root:hover": {
+                                "& > fieldset": {
+                                  borderColor: theme.palette.secondary.main
                                 }
                             }
                         }}
@@ -150,7 +162,12 @@ function Login() {
                         sx={{
                             "& .MuiOutlinedInput-root.Mui-focused": {
                                 "& > fieldset": {
-                                    borderColor: theme.palette.text.primary
+                                    borderColor: theme.palette.secondary.main
+                                }
+                            },
+                            "& .MuiOutlinedInput-root:hover": {
+                                "& > fieldset": {
+                                  borderColor: theme.palette.secondary.main
                                 }
                             }
                         }}
