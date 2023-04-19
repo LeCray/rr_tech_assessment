@@ -22,25 +22,16 @@ import {
 
   import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 
-  import { green, purple, grey } from '@mui/material/colors';
+  
 
   import ThemeContext from './theme/themeContext'
+
+  import {light, dark} from './theme/theme'
 
   import ColorModeContext from './theme/ColorModeContext'
   
 
-  // Define theme settings
-const light = {
-    palette: {
-      mode: "light",
-    },
-  };
-  
-  const dark = {
-    palette: {
-      mode: "dark",
-    },
-  };
+
 
 function App() {
     
@@ -77,13 +68,13 @@ function App() {
     }, [mode])
 
     const colorMode = React.useMemo(
-      () => ({
-        toggleColorMode: () => {
-            setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-        },
-      }),
-      [],
-    );
+        () => ({
+            toggleColorMode: () => {
+                setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+            },
+        }),
+    [],);
+    
   
     const theme = React.useMemo(
       () =>
@@ -92,39 +83,11 @@ function App() {
                 mode,
                 ...(mode == 'light' ?
                     {
-                        // palette values for light mode
-                        primary: {
-                            main: '#111',
-                        },
-                        secondary: {
-                            main: '#521c90',
-                        },
-                        divider: green[200],
-                        text: {
-                            primary: grey[900],
-                            secondary: grey[800],
-                        },
-                        action: {                            
-                            disabled: '#555'
-                        }
+                       light
                     }
                 : 
                     {
-                        // palette values for dark mode
-                        primary: {
-                            main: '#222'
-                        },   
-                        secondary: {
-                            main: '#521c90',
-                        },             
-                        background: {
-                            default: "#111",
-                            paper: '#000',
-                        },
-                        text: {
-                            primary: '#fff',
-                            secondary: '#fff',
-                        },
+                        dark
                         
                     }
                 ),

@@ -106,7 +106,7 @@ function ResponsiveAppBar() {
 
     return (
         <AppBar position="static">
-            <Container maxWidth="xl" sx={{backgroundColor: theme.palette.background}}>
+            <Container maxWidth="xl" sx={{backgroundColor: '#111'}}>
                 <Toolbar disableGutters>
                 
                     <Typography

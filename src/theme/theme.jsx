@@ -1,16 +1,45 @@
+import { grey } from '@mui/material/colors';
+
+// Define theme settings
 export const light = {
-    // customise the theme as per your needs
-    // for a full list of what's customizable
-    // refer to material ui docs
-    palette: {
-      type: "light",
+// palette values for light mode
+    primary: {
+        main: '#111',
+    },
+    secondary: {
+        main: '#521c90',
+    },   
+    background: {
+        default: "#111",
+        paper: '#000',
+    }, 
+    text: {
+        primary: grey[900],
+        secondary: grey[800],
+    },
+    action: {                            
+        disabled: '#555'
     }
-  };
-  export const dark = {
-    // customise the theme as per your needs
-    // for a full list of what's customizable
-    // refer to material ui docs
-    palette: {
-      type: "dark",
-    }
-  };
+};
+  
+export const dark = {
+ // palette values for dark mode
+    primary: {
+        main: '#222'
+    },   
+    secondary: {
+        main: '#521c90',
+    },             
+    background: {
+        default: "#111",
+        paper: '#000',
+    },
+    text: {
+        primary: '#fff',
+        secondary: '#fff',
+    },
+};
+
+
+
+  //export default theme

@@ -136,12 +136,12 @@ function Login() {
                         sx={{
                             "& .MuiOutlinedInput-root.Mui-focused": {
                                 "& > fieldset": {
-                                    borderColor: theme.palette.secondary.main
+                                    borderColor: theme.palette.text.primary
                                 }
                             },
                             "& .MuiOutlinedInput-root:hover": {
                                 "& > fieldset": {
-                                  borderColor: theme.palette.secondary.main
+                                  borderColor: theme.palette.text.primary
                                 }
                             }
                         }}
@@ -162,12 +162,12 @@ function Login() {
                         sx={{
                             "& .MuiOutlinedInput-root.Mui-focused": {
                                 "& > fieldset": {
-                                    borderColor: theme.palette.secondary.main
+                                    borderColor: theme.palette.text.primary
                                 }
                             },
                             "& .MuiOutlinedInput-root:hover": {
                                 "& > fieldset": {
-                                  borderColor: theme.palette.secondary.main
+                                  borderColor: theme.palette.text.primary
                                 }
                             }
                         }}
@@ -192,7 +192,13 @@ function Login() {
                                 type="submit"
                                 fullWidth
                                 variant="contained"
-                                sx={{ mt: 3, mb: 2 }}
+                                color="primary"
+                                sx={{ mt: 3, mb: 2, bgcolor: '#222', color: '#fff',
+                                    ":hover": {
+                                      bgcolor: '#444',
+                                      color: "white"
+                                    }
+                                  }}
                                 >
                                 Sign In
                             </Button>
