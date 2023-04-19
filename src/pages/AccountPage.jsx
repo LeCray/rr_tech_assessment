@@ -1,17 +1,10 @@
 import React from 'react'
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import styled from "styled-components";
-import { keyframes } from "styled-components";
 import { useSelector } from 'react-redux';
-
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { useTheme } from '@mui/material/styles';
-
-
 
 
 function AccountPage() {

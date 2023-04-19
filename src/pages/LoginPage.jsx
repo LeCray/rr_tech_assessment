@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/authSlice';
-import Alert from '@mui/material/Alert';
-
 import { useNavigate } from "react-router-dom";
-
-
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -15,36 +11,27 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
-
 import { useTheme } from '@mui/material/styles';
-
 import { validate } from 'react-email-validator';
 import passwordValidator from 'password-validator'
 import CircularProgress from '@mui/material/CircularProgress';
 
 
-function Login() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+function Login() {    
     const dispatch = useDispatch();
-    const [openDialogue, setOpenDialogue] = useState(false);
-    const [invalidEmail, setInvalidEmail] = useState(false)
-    const [invalidPassword, setInvalidPassword] = useState(false)
+    const [openDialogue, setOpenDialogue] = useState(false);    
     const [error, setError] = useState("")
     const [signingIn, setSigningIn] = useState(false)
 
+    const navigate = useNavigate();
     const theme = useTheme();
 
-    // Create a schema
+    // Create a password schema
     var passwordSchema = new passwordValidator();
-
-    const navigate = useNavigate();
-
     // Add properties to it
     passwordSchema
         .is().min(8)         // Minimum length 8    
@@ -88,9 +75,8 @@ function Login() {
 
         console.log("Password validator: ", passwordSchema.validate(password))
 
-        if (email === "darryn@randrtechsa.com" && password === "P@55w0rd@1") {
-            const token = "Example Token"; //Some API logic to provide user with a unique token
-            // Dispatch a login action to update the global state with the token
+        if (email === "darryn@randrtechsa.com" && password === "P@55w0rd@1") { //Hard coded creds
+            const token = "Example Token"; //Some API logic to provide user with a unique token            
            
             setSigningIn(true)
             setTimeout(() => {    
@@ -101,7 +87,6 @@ function Login() {
                 localStorage.setItem('password', password);            
                 navigate("/home");
                     
-
             }, 2000);
             
         } else {
@@ -112,14 +97,12 @@ function Login() {
 
     return (
         <Container component="main" maxWidth="xs">
-            <Box
-                sx={{  
-                    marginTop: 8,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                }}
-            >
+            <Box sx={{  
+                marginTop: 8,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",                                
+            }}>
                 <Typography component="h1" variant="h5" sx={{
                     background: '#121FCF',
                     background: 'repeating-linear-gradient(to right, #121FCF 0%, #CF1512 100%)',
@@ -154,9 +137,7 @@ function Login() {
                                   borderColor: theme.palette.text.primary
                                 }
                             }
-                        }}
-                        />
-                        
+                        }}/>                                                
                     <TextField
                         margin="normal"
                         required
@@ -180,8 +161,7 @@ function Login() {
                                   borderColor: theme.palette.text.primary
                                 }
                             }
-                        }}
-                        />
+                        }}/>                        
                     <Grid display="flex" justifyContent="flex-start">
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" sx={{
@@ -190,14 +170,14 @@ function Login() {
                                 },
                             }}/>}
                             label="Remember me"
-                            />
+                        />
                     </Grid>
                     {signingIn?
                         <Box sx={{ display: 'flex', justifyContent: 'center', mt:3, mb:2 }}>
                             <CircularProgress size={25} color="primary" sx={{color: theme.palette.text.primary}}/>    
                         </Box>
                     :
-                        <div>
+                        <>
                             <Button
                                 type="submit"
                                 fullWidth
@@ -226,7 +206,7 @@ function Login() {
                                     </Link>
                                 </Grid>
                             </Grid>
-                        </div>
+                        </>
                     }
                 </Box>
             </Box>

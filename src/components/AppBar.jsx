@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -10,24 +10,17 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-
 import { logout } from '../redux/authSlice';
 import { useSelector, useDispatch } from 'react-redux'
-
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import LightModeIcon from '@mui/icons-material/LightMode';
-
-import { Link, useLocation, useNavigate } from "react-router-dom";
-
-
-import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
-
+import { useLocation, useNavigate } from "react-router-dom";
+import { useTheme } from '@mui/material/styles';
 import ColorModeContext from '../theme/ColorModeContext'
 
 const pages = ['Home', 'Account'];
@@ -48,10 +41,6 @@ function ResponsiveAppBar() {
 
     const theme = useTheme();
     const colorMode = useContext(ColorModeContext);
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);

@@ -1,8 +1,8 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext } from "react";
 
 const ColorModeContext = createContext({
     toggleColorMode: () => {
-      // This is intentional
+      // This is left empty on purpose
     },
 });
 

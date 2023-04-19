@@ -39,7 +39,3 @@ export const dark = {
         secondary: '#fff',
     },
 };
-
-
-
-  //export default theme
