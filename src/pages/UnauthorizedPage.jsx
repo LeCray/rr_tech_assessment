@@ -24,7 +24,7 @@ function UnauthorizedPage() {
                     '-webkit-background-clip': 'text',
                     '-webkit-text-fill-color': 'transparent',
                     fontWeight: 800,
-                    fontSize: 50,
+                    fontSize: 40,
                     marginTop: 10
                 }}>
                     UNAUTHORIZED                    
