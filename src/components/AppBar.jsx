@@ -188,7 +188,7 @@ function ResponsiveAppBar() {
                                     <Avatar 
                                         alt={email.toUpperCase() } 
                                         sx={{ width: 30, height: 30, bgcolor: '#521c90' }}
-                                        src="/broken-image.jpg"/>
+                                        />
                                 </IconButton>
                             </Tooltip>
                             <Menu

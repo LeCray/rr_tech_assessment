@@ -65,6 +65,16 @@ function Login() {
         const email = data.get("email")
         const password = data.get("password")
 
+        if (!email) {
+            setError("Email is required.")
+            setOpenDialogue(true);        
+            return
+        }
+        if (!password) {
+            setError("A password is required.")
+            setOpenDialogue(true);        
+            return
+        }
         if (!validate(email)) {
             setError("Invalid email. Please try again.")
             setOpenDialogue(true);        
