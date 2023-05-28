@@ -19,12 +19,9 @@ function RootNavigator() {
     <Router>        
         <ResponsiveAppBar/>
       <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/home" element={
-            <PrivateRoute>
-                <HomePage />
-            </PrivateRoute>
-        }/>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />}/>
+        <Route path="/login" element={<LoginPage />}/>                    
         <Route path="/account" element={
             <PrivateRoute>
                 <AccountPage />

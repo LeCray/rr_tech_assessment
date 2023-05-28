@@ -73,8 +73,8 @@ function ResponsiveAppBar() {
     
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        <Typography variant="h6" sx={{ my: 2, fontFamily: 'Montserrat', fontWeight: 700}}>
-            R & R TECH
+        <Typography variant="h6" sx={{ my: 2, fontFamily: 'montserrat', fontWeight: 700}}>
+            X CAPITAL
         </Typography>
         
         <List>
@@ -102,18 +102,18 @@ function ResponsiveAppBar() {
                         variant="h6"
                         noWrap
                         component="a"
-                        href={token ? "Home": "/"}
+                        href={'/Home'}
                         sx={{
                         mr: 2,
                         display: { xs: 'none', md: 'flex' },
-                        fontFamily: 'Montserrat',
+                        fontFamily: 'montserrat',
                         fontWeight: 700,
                         letterSpacing: '.3rem',
                         color: 'inherit',
                         textDecoration: 'none',
                         }}
                     >
-                        R&R TECH
+                        X CAPITAL
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -138,14 +138,14 @@ function ResponsiveAppBar() {
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            fontFamily: 'Montserrat',
+                            fontFamily: 'montserrat',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
-                        R&R TECH
+                        X CAPITAL
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {token && pages.map((page) => (
@@ -162,10 +162,10 @@ function ResponsiveAppBar() {
                     <Box sx={{ flexGrow: 0 }}>
                     
                         <IconButton onClick={colorMode.toggleColorMode} sx={{ p: 0 }}>
-                        {theme.palette.mode === 'dark' ?                                 
-                                <LightModeIcon />
+                        {theme.palette.mode === 'dark' ?                                                                 
+                                <ModeNightIcon />
                             : 
-                                <ModeNightIcon sx={{ color: "#fff"}}/>
+                                <LightModeIcon sx={{ color: "#fff"}}/>
                             }                                          
                         </IconButton>
                     

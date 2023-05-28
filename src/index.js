@@ -6,6 +6,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import "@fontsource/montserrat"; // Defaults to weight 400.
+import '@fontsource-variable/mulish'; // Supports weights 200-900
+
 
 const container = document.getElementById('root');
 const root = createRoot(container);

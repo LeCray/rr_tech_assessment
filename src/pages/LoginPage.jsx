@@ -29,6 +29,20 @@ function Login() {
 
     const navigate = useNavigate();
     const theme = useTheme();
+    
+    var colors = {};
+
+    if (theme.palette.mode === 'dark') {
+        colors = {
+            primary: theme.palette.dark.primary.main,
+            secondary: theme.palette.dark.secondary.main,            
+        }
+    } else {
+        colors = {
+            primary: theme.palette.light.primary.main,
+            secondary: theme.palette.light.secondary.main,            
+        }
+    }
 
     // Create a password schema
     var passwordSchema = new passwordValidator();
@@ -67,15 +81,15 @@ function Login() {
             setOpenDialogue(true);        
             return
         }
-        if (!passwordSchema.validate(password)) {
-            setError("Invalid password. Make sure your password contains:")
-            setOpenDialogue(true);        
-            return
-        }
+        // if (!passwordSchema.validate(password)) {
+        //     setError("Invalid password. Make sure your password contains:")
+        //     setOpenDialogue(true);        
+        //     return
+        // }
 
         console.log("Password validator: ", passwordSchema.validate(password))
 
-        if (email === "darryn@randrtechsa.com" && password === "P@55w0rd@1") { //Hard coded creds
+        if (email === "xola@gmail.com" && password === "xola") { //Hard coded creds
             const token = "Example Token"; //Some API logic to provide user with a unique token            
            
             setSigningIn(true)
@@ -105,13 +119,13 @@ function Login() {
             }}>
                 <Typography component="h1" variant="h5" sx={{
                     background: '#121FCF',
-                    background: 'repeating-linear-gradient(to right, #121FCF 0%, #CF1512 100%)',
+                    background: 'repeating-linear-gradient(to right,' + colors.primary + ',' + colors.secondary + ')',
                     '-webkit-background-clip': 'text',
                     '-webkit-text-fill-color': 'transparent',
                     fontWeight: 800,
                     fontSize: 50,                    
                 }}>
-                    SIGN IN                                
+                    LOGIN                              
                 </Typography>
                 <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                     <TextField
@@ -129,12 +143,13 @@ function Login() {
                         sx={{
                             "& .MuiOutlinedInput-root.Mui-focused": {
                                 "& > fieldset": {
-                                    borderColor: theme.palette.text.primary
+                                    borderColor: colors.primary
                                 }
                             },
                             "& .MuiOutlinedInput-root:hover": {
                                 "& > fieldset": {
-                                  borderColor: theme.palette.text.primary
+                                  borderColor: colors.primary,
+                                  borderWidth: 2
                                 }
                             }
                         }}/>                                                
@@ -153,12 +168,13 @@ function Login() {
                         sx={{
                             "& .MuiOutlinedInput-root.Mui-focused": {
                                 "& > fieldset": {
-                                    borderColor: theme.palette.text.primary
+                                    borderColor: colors.primary
                                 }
                             },
                             "& .MuiOutlinedInput-root:hover": {
                                 "& > fieldset": {
-                                  borderColor: theme.palette.text.primary
+                                    borderColor: colors.primary,
+                                    borderWidth: 2
                                 }
                             }
                         }}/>                        
