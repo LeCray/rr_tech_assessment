@@ -9,11 +9,18 @@ const ChartComponent = props => {
     const colorMode = useContext(ColorModeContext);
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
           setWindowWidth(window.innerWidth);
         };
+
+        if (window.innerWidth < 600) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
     
         // Attach event listener to window resize
         window.addEventListener('resize', handleResize);
@@ -26,16 +33,16 @@ const ChartComponent = props => {
     
 
     const data = [
-        { time: '2018-12-22', value: 32.51 },
-        { time: '2018-12-23', value: 31.11 },
-        { time: '2018-12-24', value: 27.02 },
-        { time: '2018-12-25', value: 27.32 },
-        { time: '2018-12-26', value: 25.17 },
-        { time: '2018-12-27', value: 28.89 },
-        { time: '2018-12-28', value: 25.46 },
-        { time: '2018-12-29', value: 23.92 },
-        { time: '2018-12-30', value: 22.68 },
-        { time: '2018-12-31', value: 22.67 },
+        { time: '2018-12-22', value: 22.67 },
+        { time: '2018-12-23', value: 22.68 },
+        { time: '2018-12-24', value: 23.92 },
+        { time: '2018-12-25', value: 25.46 },
+        { time: '2018-12-26', value: 28.89},
+        { time: '2018-12-27', value: 25.17 },
+        { time: '2018-12-28', value: 27.32 },
+        { time: '2018-12-29', value: 27.02 },
+        { time: '2018-12-30', value: 31.11},
+        { time: '2018-12-31', value: 32.51 },
     ];
         
     var themeColors = {};
@@ -91,7 +98,7 @@ const ChartComponent = props => {
                         color: colors.backgroundColor,
                     },
                 },
-				width: windowWidth - 100,
+				width: isMobile? windowWidth - 20 : windowWidth - 100,
 				height: 300,
             });
 

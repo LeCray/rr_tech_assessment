@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -15,6 +15,7 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 
 function AccountPage() {
 
+    const [isMobile, setIsMobile] = useState(false);
     const theme = useTheme();
     
     var colors = {};
@@ -31,6 +32,14 @@ function AccountPage() {
         }
     }
 
+    useEffect(() => {        
+        if (window.innerWidth < 600) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
+      }, []);
+
     let email;
     email = useSelector((state) => state.auth.email) || localStorage.getItem('email')
 
@@ -38,7 +47,7 @@ function AccountPage() {
     password = useSelector((state) => state.auth.password) || localStorage.getItem('password')
     
     return (
-        <div style={{textAlign: 'left', marginLeft: 50, marginTop: 100}}>
+        <div style={{textAlign: 'left', marginLeft: isMobile? 20 : 50, marginTop: 100}}>
             <Box
                 sx={{  
                     marginTop: 8,
@@ -47,19 +56,18 @@ function AccountPage() {
                     alignItems: "start",
                     
                 }}>                               
-                <Typography component="h1" variant="h5" sx={{
+                <Typography component="h1" variant={isMobile ? "h5" : "h4"} sx={{
                     background: '#121FCF',
                     background: 'repeating-linear-gradient(to right,' + colors.primary + ',' + colors.secondary + ')',
                     '-webkit-background-clip': 'text',
                     '-webkit-text-fill-color': 'transparent',
-                    fontWeight: 800,
-                    fontSize: 50,                    
+                    fontWeight: 800,                                      
                     textAlign: 'left'
                 }}>
-                    YOUR<br/>ACCOUNT                    
+                    ACCOUNT DETAILS
                 </Typography>
 
-                <Box sx={{width: 400, pt: 5}}>     
+                <Box sx={{width: isMobile? "90%" : 400, pt: 5}}>     
 
                     <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between'}}>
                         <Box sx={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>

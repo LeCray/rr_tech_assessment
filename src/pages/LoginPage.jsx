@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/authSlice';
 import { useNavigate } from "react-router-dom";
@@ -26,6 +26,7 @@ function Login() {
     const [openDialogue, setOpenDialogue] = useState(false);    
     const [error, setError] = useState("")
     const [signingIn, setSigningIn] = useState(false)
+    const [isMobile, setIsMobile] = useState(false);
 
     const navigate = useNavigate();
     const theme = useTheme();
@@ -43,6 +44,17 @@ function Login() {
             secondary: theme.palette.light.secondary.main,            
         }
     }
+
+    useEffect(() => {        
+
+        if (window.innerWidth < 600) {
+            setIsMobile(true)
+        } else {
+            setIsMobile(false)
+        }
+
+      }, []); // Empty dependency array to run the effect only once
+    
 
     // Create a password schema
     var passwordSchema = new passwordValidator();
@@ -89,7 +101,7 @@ function Login() {
 
         console.log("Password validator: ", passwordSchema.validate(password))
 
-        if (email === "xola@gmail.com" && password === "xola") { //Hard coded creds
+        if (email === "thoko@gmail.com" && password === "thoko") { //Hard coded creds
             const token = "Example Token"; //Some API logic to provide user with a unique token            
            
             setSigningIn(true)
@@ -99,7 +111,7 @@ function Login() {
                 localStorage.setItem("token", token)
                 localStorage.setItem('email', email);
                 localStorage.setItem('password', password);            
-                navigate("/home");
+                navigate("/Portfolio");
                     
             }, 2000);
             
@@ -117,13 +129,12 @@ function Login() {
                 flexDirection: "column",
                 alignItems: "center",                                
             }}>
-                <Typography component="h1" variant="h5" sx={{
+                <Typography component="h1" variant="h4" sx={{
                     background: '#121FCF',
                     background: 'repeating-linear-gradient(to right,' + colors.primary + ',' + colors.secondary + ')',
                     '-webkit-background-clip': 'text',
                     '-webkit-text-fill-color': 'transparent',
-                    fontWeight: 800,
-                    fontSize: 50,                    
+                    fontWeight: 800,                                    
                 }}>
                     LOGIN                              
                 </Typography>

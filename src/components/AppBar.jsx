@@ -23,7 +23,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from '@mui/material/styles';
 import ColorModeContext from '../theme/ColorModeContext'
 
-const pages = ['Home', 'Account'];
+const pages = ['Home', 'Account', 'Portfolio'];
 const settings = ['Account', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -69,19 +69,19 @@ function ResponsiveAppBar() {
 
 
     const drawerWidth = 240;
-    const navItems = ['Home', 'Account'];
+    const navItems = ['Home', 'Account', 'Portfolio'];
     
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        <Typography variant="h6" sx={{ my: 2, fontFamily: 'montserrat', fontWeight: 700}}>
+        <Typography variant="h6" sx={{ my: 2, fontFamily: 'montserrat', fontWeight: 700, letterSpacing: '.2rem'}}>
             X CAPITAL
         </Typography>
         
         <List>
             {navItems.map((item) => (
                 <ListItem key={item} disablePadding>
-                    <ListItemButton sx={{ textAlign: 'center' }} href={item}>
-                        <ListItemText primary={item} />
+                    <ListItemButton sx={{ textAlign: 'center', }} href={item}>
+                        <ListItemText style={{fontFamily: 'montserrat' }} primary={item} />
                     </ListItemButton>
                 </ListItem>
             ))}
@@ -108,7 +108,7 @@ function ResponsiveAppBar() {
                         display: { xs: 'none', md: 'flex' },
                         fontFamily: 'montserrat',
                         fontWeight: 700,
-                        letterSpacing: '.3rem',
+                        letterSpacing: '.2rem',
                         color: 'inherit',
                         textDecoration: 'none',
                         }}
@@ -130,7 +130,7 @@ function ResponsiveAppBar() {
                         </IconButton>
                     </Box>          
                     <Typography
-                        variant="h5"
+                        variant="h6"
                         noWrap
                         component="a"
                         href=""
@@ -140,7 +140,7 @@ function ResponsiveAppBar() {
                             flexGrow: 1,
                             fontFamily: 'montserrat',
                             fontWeight: 700,
-                            letterSpacing: '.3rem',
+                            letterSpacing: '.2rem',
                             color: 'inherit',
                             textDecoration: 'none',
                         }}
